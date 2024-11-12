@@ -1,20 +1,20 @@
 import { test as base, Page } from '@playwright/test'; 
-import { CpqPageManager} from '../ApplicationLogic/Pages/PageManager';
-import { CpqCredsEnum } from '../ApplicationLogic/Enums/CredsEnum';
+import { PageManager} from '../ApplicationLogic/Pages/PageManager';
+import { CredsEnum } from '../ApplicationLogic/Enums/CredsEnum';
 
 export type TestOptions = {
     domain: string;
 }
-export const test = base.extend<TestOptions & {cpqPage: Page, cpqPageManager: CpqPageManager}> ({
+export const test = base.extend<TestOptions & {page: Page, cpqPageManager: PageManager}> ({
     domain: ['', {option: true}],
-    cpqPage: async ({browser}, use) => {
+    page: async ({browser}, use) => {
         const cpqPage = await browser.newPage();
         await cpqPage.goto('https://claritylabs-tst.cpq.cloud.sap/Login.aspx');
-        await new CpqPageManager(cpqPage).cpqLoginPage.LogIn(CpqCredsEnum.Login, CpqCredsEnum.Password);
+        await new PageManager(cpqPage).cpqLoginPage.LogIn(CredsEnum.Login, CredsEnum.Password);
         await use(cpqPage);
     },
-    cpqPageManager: async ({cpqPage}, use) => {
-        const cpqPageManager = new CpqPageManager(cpqPage);
+    cpqPageManager: async ({page}, use) => {
+        const cpqPageManager = new PageManager(page);
         await use(cpqPageManager);
     },
 })

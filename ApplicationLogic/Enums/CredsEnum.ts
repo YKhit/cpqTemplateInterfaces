@@ -1,4 +1,4 @@
-export enum CpqCredsEnum {
+export enum CredsEnum {
     Login = "aleonenko", 
     Password = "StrongPassword123!",
 };

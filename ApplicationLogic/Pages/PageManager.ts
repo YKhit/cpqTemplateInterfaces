@@ -1,6 +1,6 @@
 import { Page} from "@playwright/test";
-import { CpqLoginPage } from "./LoginPage";
-import { CpqBaseApplicationPage } from "./BaseApplicationPage";
+import { LoginPage } from "./LoginPage";
+import { BaseApplicationPage } from "./BaseApplicationPage";
 import { CategoriesDetails } from "../Components/Home/CategoryDetails";
 import { MainCatalog } from "../Components/Home/MainCatalog";
 import { ManageConfigurator } from "../Components/Configurator/ManageConfigurator";
@@ -14,7 +14,7 @@ import { UserMenu } from "../Components/HeaderMenu/UserMenu";
 import { SideMenu } from "../Components/SideMenu/SideMenu";
 import { SetupMenu } from "../Components/SideMenu/SetupMenu";
 
-export class CpqPageManager {
+export class PageManager {
     page: Page;
     headerMenu;
     userMenu;
@@ -33,8 +33,8 @@ export class CpqPageManager {
 
     constructor(page) {
         this.page = page;
-        this.cpqLoginPage = new CpqLoginPage(page, this.page.locator('[class*="lg_col_2"]'));
-        this.cpqBaseApplicationPage = new CpqBaseApplicationPage();
+        this.cpqLoginPage = new LoginPage(page, this.page.locator('[class*="lg_col_2"]'));
+        this.cpqBaseApplicationPage = new BaseApplicationPage();
         this.headerMenu = new HeaderMenu(page, this.page.locator('[id="headerContainer"]').first());
         this.userMenu = new UserMenu(page, this.page.locator('[id="userMenuDropdownContainer"]'));
         this.sideMenu = new SideMenu(page, this.page.locator('[id="sideMenuContainer"]'));

@@ -1,6 +1,6 @@
 import { BasePage } from "./BasePage";
 
-export class CpqLoginPage extends BasePage {
+export class LoginPage extends BasePage {
     constructor(page, container) {
         super(page, container);
     };
