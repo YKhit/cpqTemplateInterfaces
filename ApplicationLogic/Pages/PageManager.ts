@@ -20,8 +20,8 @@ export class PageManager {
     userMenu;
     sideMenu;
     setupMenu;
-    cpqLoginPage;
-    cpqBaseApplicationPage;
+    loginPage;
+    baseApplicationPage;
     categoriesDetails;
     mainCatalog;
     manageConfigurator;
@@ -33,8 +33,8 @@ export class PageManager {
 
     constructor(page) {
         this.page = page;
-        this.cpqLoginPage = new LoginPage(page, this.page.locator('[class*="lg_col_2"]'));
-        this.cpqBaseApplicationPage = new BaseApplicationPage();
+        this.loginPage = new LoginPage(page, this.page.locator('[class*="lg_col_2"]'));
+        this.baseApplicationPage = new BaseApplicationPage();
         this.headerMenu = new HeaderMenu(page, this.page.locator('[id="headerContainer"]').first());
         this.userMenu = new UserMenu(page, this.page.locator('[id="userMenuDropdownContainer"]'));
         this.sideMenu = new SideMenu(page, this.page.locator('[id="sideMenuContainer"]'));
