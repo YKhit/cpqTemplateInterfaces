@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 
 export interface IContainer {
   readonly page: Page;
-  readonly container?: Locator;
+  readonly container: Locator;
 };
 
 export class BasePage implements IContainer {

@@ -1,5 +1,5 @@
 import { test as base, Page } from '@playwright/test'; 
-import { PageManager} from '../ApplicationLogic/Pages/PageManager';
+import { PageManager } from '../ApplicationLogic/Pages/PageManager';
 import { CredsEnum } from '../ApplicationLogic/Enums/CredsEnum';
 
 export type TestOptions = {
